@@ -1,30 +1,14 @@
 import uuid
 import random
-import loguru
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
 import requests
 
+from core.log_config import logger, divide
 
 app = FastAPI()
-logger = loguru.logger
-logger.remove()
-logger.add(
-    'file_{time}.log',
-    format="{time} - {level} - ({extra[request_id]}) {message} ",
-    level="DEBUG",
-    enqueue=True
-)
-
-URL = "http://127.0.0.1:8000/posts/list"
-
-
-def divide(a, b):
-    logger.debug(f"Dividing {a} / {b} ...")
-    result = a / b
-    logger.debug(f"Result is {result}")
 
 
 @app.middleware("http")
@@ -51,6 +35,9 @@ async def read_root():
     return {"success": True, "result": divide(a, b)}
 
 
+URL = 'http://127.0.0.1:8000/posts/list'
+
+
 @app.get("/get_data")
 def get_data():
     data = requests.get(url=URL)
@@ -58,7 +45,6 @@ def get_data():
     with open('get_data_blog_posts.xls', 'wb') as file:
         file.write(data.content)
     return data.json()
-
 
 # @app.post("/upload")
 # async def upload(file: UploadFile = File(...)):
