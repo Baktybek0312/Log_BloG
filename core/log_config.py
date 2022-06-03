@@ -5,7 +5,7 @@ logger.remove()
 logger.add(
     'file.log',
     format="{time} - {level} - ({extra[request_id]}) {message} ",
-    level="DEBUG",
+    level="INFO",
     enqueue=True
 )
 logger.debug('Error')
@@ -17,3 +17,5 @@ def divide(a, b):
     logger.debug(f"Dividing {a} / {b} ...")
     result = a / b
     logger.debug(f"Result is {result}")
+
+# def record_logs()
