@@ -11,3 +11,6 @@ class PostList(UserBase):
     title: str
     description: str
     owner_id: str
+
+    class Config:
+        orm_mode = True
