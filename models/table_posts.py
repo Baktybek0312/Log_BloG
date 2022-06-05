@@ -23,5 +23,6 @@ class Post(Base):
     title = Column(String, index=True)
     description = Column(Text)
     owner_id = Column(Integer, ForeignKey('users.id'))
-
+    owner_name = Column(String)
+    owner_email = Column(String)
     owner = relationship("User", back_populates="post")
