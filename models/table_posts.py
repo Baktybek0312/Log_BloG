@@ -1,19 +1,8 @@
 from sqlalchemy import (
-    Column, String, Text, Integer, ForeignKey
+    Column, String, Text, Integer
 )
-from sqlalchemy.orm import relationship
 
 from db.database import Base
-
-
-class User(Base):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True)
-    username = Column(String)
-    email = Column(String)
-
-    post = relationship("Post", back_populates="owner")
 
 
 class Post(Base):
@@ -22,7 +11,6 @@ class Post(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String, index=True)
     description = Column(Text)
-    owner_id = Column(Integer, ForeignKey('users.id'))
+    owner_id = Column(Integer)
     owner_name = Column(String)
     owner_email = Column(String)
-    owner = relationship("User", back_populates="post")
