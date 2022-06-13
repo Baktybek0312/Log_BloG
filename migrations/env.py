@@ -7,8 +7,6 @@ from alembic import context
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
-import db
-
 config = context.config
 
 # Interpret the config file for Python logging.
@@ -19,7 +17,9 @@ if config.config_file_name is not None:
 # add your model's MetaData object here
 # for 'autogenerate' support
 from models import table_posts
+
 target_metadata = table_posts.Base.metadata
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
