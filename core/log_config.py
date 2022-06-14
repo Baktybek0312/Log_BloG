@@ -1,4 +1,4 @@
-# import logging
+# import logger
 #
-# logging.basicConfig()
-# logging.getLogger('apscheduler').setLevel(logging.DEBUG)
+# logger.basicConfig()
+# logger.getLogger('apscheduler').setLevel(logger.DEBUG)

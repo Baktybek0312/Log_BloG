@@ -1,16 +1,19 @@
 import json
 
-from sqlalchemy.orm import Session, session
+from sqlalchemy.orm import Session
 from fastapi import Depends
 
 import requests
 import pandas as pd
 
 from models.table_posts import Post
-from db.database import get_db
+from db.database import get_db, SessionLocal
+# from schemas.schema_scheduler import CurrentScheduledJob, CurrentScheduledJobsResponse, JobCreateDeleteResponse
+
+db: Session = SessionLocal()
 
 
-def get_data(db: Session):
+def get_data():
     """
     данная фукция парсит  URL = "http://127.0.0.1:8000/posts/list" и сохроняет в БД и excel файл
     """
@@ -45,3 +48,7 @@ def get_data(db: Session):
         df = pd.DataFrame(dt)
         df.to_excel('output_get_data.xlsx', sheet_name='record dataset')
     return {"status": 200}
+
+
+# def create_scheduler_job(db: Session, schedule: schemas.schema_scheduler):
+#     db_schedule = mo
