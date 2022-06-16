@@ -1,24 +1,17 @@
 from pytz import utc
 from datetime import datetime
-from enum import Enum
-from uuid import uuid4
-
 import logging
 
-from apscheduler.triggers.cron import CronTrigger
-# from apscheduler.schedulers.asyncio import AsyncIOScheduler
-# from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 
-from fastapi import APIRouter, Depends, Body, HTTPException
 from sqlalchemy.orm import Session
 
-from schemas.schema_scheduler import JobCreate, ActionEnum
-from schemas.schema_scheduler import JobCreateDeleteResponse, JobListResponse
+from schemas.schema_scheduler import JobCreate, JobDelete
 from core.scheduler import my_scheduler
-from db.database import get_db, SessionLocal
-from services import parse_data
 from core.settings import settings
 from services.parse_data import get_data
+from services.excel_data import get_data_report
 
 router = APIRouter(
     prefix='/job_tasks',
@@ -30,19 +23,24 @@ logger = logging.getLogger(__name__)
 
 
 @router.post('/add_job')
-async def add_scheduler_from_parse_data(job: JobCreateDeleteResponse):
+async def add_scheduler_from_parse_data(job: JobCreate):
     """
     Добавление нового задания в расписание
     """
-    schedule = my_scheduler.add_job(get_data, 'interval', id=job.job_id, seconds=job.time_in_seconds)
-    return {"scheduled": True, "job_id": schedule.id}
+    try:
+        schedule = my_scheduler.add_job(
+            get_data, 'cron', id=job.job_id,
+            hour=job.time_in_hours, minute=job.time_in_minute,
+        )
+        return {"scheduled": True, "job_id": schedule.id}
+    except:
+        raise HTTPException(status_code=400, detail=f'Job identifier {job.job_id} conflicts with an existing job')
 
 
 @router.get('/get_scheduler_jobs')
 async def get_scheduled_syncs():
     """
     Предоставит список текущих запланированных задач
-
     """
     schedules = []
     for job in my_scheduler.get_jobs():
@@ -50,13 +48,23 @@ async def get_scheduled_syncs():
     return {"jobs": schedules}
 
 
-@router.put('/pause_job')
-async def pause_scheduler_job(job_id: JobCreateDeleteResponse):
-    my_scheduler.pause_job(job_id=job_id.job_id)
-    return f"successfully stopped id {job_id.job_id}"
+# @router.post('/update/{job_id}')
+# def upgrade_job(job: JobCreate):
+#     pass
 
 
-@router.delete('/delete_jobs')
-async def remove_jobs_from_scheduler(job_id: JobCreateDeleteResponse):
-    my_scheduler.remove_job(job_id=job_id.job_id)
-    return f"deleted jobs{job_id}"
+@router.delete('/delete_job')
+async def remove_jobs_from_scheduler(job: JobDelete):
+    """
+    Удаление задание из расписании
+    """
+    try:
+        my_scheduler.remove_job(job_id=job.job_id)
+        return {"message": f"Job {job.job_id} deleted!"}
+    except:
+        raise HTTPException(status_code=404, detail="Job id not exists!")
+
+
+@router.get('/get_excel_file')
+async def make_xls_file_response():
+    return get_data_report()
