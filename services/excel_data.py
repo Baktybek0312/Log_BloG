@@ -2,8 +2,10 @@ import json
 from io import BytesIO
 
 from sqlalchemy.orm import Session
+
 import requests
 import pandas as pd
+import xlsxwriter
 
 from models.table_posts import Post
 from db.database import SessionLocal
@@ -24,14 +26,9 @@ def get_data_report():
             'username': p.owner_name, 'email': p.owner_email
         }
         dt.append(dict_dt)
-        output = BytesIO()
-        df = pd.DataFrame(dt)
-        # df.to_excel('output_get_data.xlsx', sheet_name='record dataset')
-        df.to_excel(output, 'output_get_data.xlsx')
+
     return dt
 
-#
-#
 # def get_users_report(bag):
 #     """
 #     Функция возврощает Реестр по транзациям (по дням), в EXCEL файле.
