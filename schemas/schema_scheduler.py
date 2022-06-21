@@ -9,7 +9,7 @@ class JobCreate(BaseModel):
     #                         description="Whether the job was scheduler or not")
     # job_id: str = Field(title="The Job ID in APScheduler", description="The Job ID in APScheduler")
     # time_in_hours: int = Field(title="The Job ID in APScheduler", description="To add time in hours", le=23)
-    time: int = Field(title="The Job ID in APScheduler", description="To add time in minute")
+    interval: int = Field(title="The Job ID in APScheduler", description="To add time in minute")
 
 
 class JobDelete(BaseModel):
