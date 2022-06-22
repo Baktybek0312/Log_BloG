@@ -16,7 +16,7 @@ schedule_logger.setLevel(level=logging.INFO)
 db: Session = SessionLocal()
 
 
-def scheduler_job():
+def record_data():
     """
     Утилитовая функция для запланированния задач
     """
@@ -29,11 +29,13 @@ def scheduler_job():
 
 
 interval = db.query(JobConfig).order_by(desc(JobConfig.id)).first().interval
-schedule.every(interval=interval).seconds.do(scheduler_job)
 
-print(schedule.get_jobs())
+schedule.every(interval=interval).seconds.do(record_data)
 print(schedule_logger)
 
 while True:
     schedule.run_pending()
-    time.sleep(5)
+    print(schedule.get_jobs())
+    time.sleep(10)
+
+

@@ -1,5 +1,6 @@
-import json
+import io
 from io import BytesIO
+from datetime import datetime
 
 from sqlalchemy.orm import Session
 
@@ -17,6 +18,20 @@ def get_data_report():
     """
     Функция выгрузка в excel файл постов
     """
+    # from_date = datetime.strptime(show['from_date'], '%Y-%m-%d')
+    # print(from_date)
+    # posts = db.query(Post).all()
+    # dt = []
+    # for p in posts:
+    #     dict_dt = {
+    #         'id': p.id, 'title': p.title,
+    #         'description': p.description, 'owner_id': p.owner_id,
+    #         'username': p.owner_name, 'email': p.owner_email
+    #     }
+    #     dt.append(dict_dt)
+    #
+    # return dt
+
     posts = db.query(Post).all()
     dt = []
     for p in posts:
@@ -26,8 +41,18 @@ def get_data_report():
             'username': p.owner_name, 'email': p.owner_email
         }
         dt.append(dict_dt)
+    df = pd.DataFrame(dt)
 
-    return dt
+    output = io.BytesIO()
+
+    # Использовать объект BytesIO в качестве дескриптора файла.
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+
+    # Записать фрейм данных в объект BytesIO.
+    df.to_excel(writer, sheet_name='record dataset', encoding='utf-8')
+    writer.save()
+    xlsx_data = output.getvalue()
+    return xlsx_data
 
 # def get_users_report(bag):
 #     """
