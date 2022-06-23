@@ -1,23 +1,14 @@
 from datetime import datetime
-from enum import Enum
 
-from pydantic import BaseModel
-
-
-class TypeEnum(str, Enum):
-    cron = 'cron'
-    single = 'single'
-
-
-class ActionEnum(str, Enum):
-    resume = 'resume'
-    pause = 'pause'
+from pydantic import BaseModel, Field
+from typing import List
 
 
 class JobCreate(BaseModel):
-    name: str
-    job_class: str
-    args: dict
-    job_type: TypeEnum
-    crontab: str
-    created_time: datetime = None
+    interval: int = Field(title="The Job ID in APScheduler", description="To add time in minute")
+
+
+class JobDelete(BaseModel):
+    id: int = Field(title="The Job ID in APScheduler", description="The Job ID in APScheduler")
+
+
