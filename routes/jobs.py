@@ -16,7 +16,6 @@ import pandas as pd
 
 from schemas.schema_scheduler import JobCreate, JobDelete
 from models.table_job import JobConfig
-# from services.excel_data import make_xls_file_response
 from services.scheduler_job import create_job, read_job
 from db.database import get_db
 from models.table_posts import Post
