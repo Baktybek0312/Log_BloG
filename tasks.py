@@ -32,10 +32,10 @@ interval = db.query(JobConfig).order_by(desc(JobConfig.id)).first().interval
 
 schedule.every(interval=interval).seconds.do(record_data)
 print(schedule_logger)
+print(schedule.get_jobs())
 
 while True:
     schedule.run_pending()
-    print(schedule.get_jobs())
     time.sleep(10)
 
 
