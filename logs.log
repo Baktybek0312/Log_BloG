@@ -1,0 +1,147 @@
+2022-06-24 11:40:40,104 | INFO | Success
+2022-06-24 11:41:15,844 | INFO | success scheduler job
+2022-06-24 11:51:16,394 | INFO | success scheduler job
+2022-06-24 11:53:07,644 | INFO | Success
+2022-06-24 11:59:03,914 | INFO | Success: data from database to excel successfully integrated
+2022-06-24 11:59:33,237 | INFO | Success: data from database to excel successfully integrated
+2022-06-24 12:01:17,060 | INFO | success scheduler job
+2022-06-24 12:11:17,599 | INFO | success scheduler job
+2022-06-24 12:33:44,634 | INFO | success scheduler job
+2022-06-24 12:38:14,140 | INFO | message: successfully created an interval in the task
+2022-06-24 12:43:45,188 | INFO | success scheduler job
+2022-06-24 12:53:45,741 | INFO | success scheduler job
+2022-06-24 13:03:46,309 | INFO | success scheduler job
+2022-06-24 13:13:47,392 | INFO | success scheduler job
+2022-06-24 13:23:47,930 | INFO | success scheduler job
+2022-06-24 13:33:48,480 | INFO | success scheduler job
+2022-06-24 13:43:49,027 | INFO | success scheduler job
+2022-06-24 13:48:05,727 | INFO | successfully unloaded from the database to an excel file
+2022-06-24 13:53:49,553 | INFO | success scheduler job
+2022-06-24 14:03:50,075 | INFO | success scheduler job
+2022-06-24 14:05:11,945 | INFO | message: successfully created an interval in the task
+2022-06-24 14:05:18,890 | INFO | message: successfully created an interval in the task
+2022-06-24 14:05:29,635 | INFO | message: successfully created an interval in the task
+2022-06-24 14:05:55,660 | INFO | message: successfully created an interval in the task
+2022-06-24 14:13:50,617 | INFO | success scheduler job
+2022-06-24 14:23:51,171 | INFO | success scheduler job
+66383| 2022-06-24 14:24:41,091 | INFO | successfully unloaded from the database to an excel file
+66543| 2022-06-24 14:38:52,892 | INFO | success scheduler job
+67919| 2022-06-24 14:43:48,528 | INFO | successfully unloaded from the database to an excel file
+67923| 2022-06-24 14:55:35,593 | INFO | success scheduler job
+2022-06-24 15:12:09,651 | INFO | success scheduler job
+2022-06-24 15:24:10,335 | INFO | success scheduler job
+2022-06-24 15:27:28,179 | INFO | GET http://127.0.0.1:8001/job_tasks/get_excel_file
+2022-06-24 15:27:28,264 | INFO | successfully unloaded from the database to an excel file
+2022-06-24 15:27:28,276 | INFO | Status code: 200
+2022-06-24 15:28:15,843 | INFO | GET http://127.0.0.1:8001/job_tasks/get_scheduler_jobs
+2022-06-24 15:28:15,872 | INFO | Status code: 200
+2022-06-24 15:29:27,280 | ERROR | sorry, but there is a problem with the server: bad status 500
+2022-06-24 15:29:47,300 | ERROR | sorry, but there is a problem with the server: bad status 500
+2022-06-24 15:30:07,556 | INFO | success scheduler job
+2022-06-24 15:30:27,641 | INFO | success scheduler job
+2022-06-24 15:30:47,780 | INFO | success scheduler job
+2022-06-24 15:31:07,900 | INFO | success scheduler job
+2022-06-24 15:31:18,887 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:31:18,893 | INFO | Status code: 422
+2022-06-24 15:31:27,980 | INFO | success scheduler job
+2022-06-24 15:31:48,068 | INFO | success scheduler job
+2022-06-24 15:32:08,157 | INFO | success scheduler job
+2022-06-24 15:32:15,787 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:32:15,807 | INFO | Status code: 422
+2022-06-24 15:32:28,248 | INFO | success scheduler job
+2022-06-24 15:32:42,539 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:32:42,546 | INFO | Status code: 422
+2022-06-24 15:32:44,415 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:32:44,419 | INFO | Status code: 422
+2022-06-24 15:32:48,321 | INFO | success scheduler job
+2022-06-24 15:33:03,025 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:33:03,029 | INFO | Status code: 422
+2022-06-24 15:33:07,942 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:33:07,949 | INFO | Status code: 422
+2022-06-24 15:33:08,428 | INFO | success scheduler job
+2022-06-24 15:33:28,506 | INFO | success scheduler job
+2022-06-24 15:33:48,572 | INFO | success scheduler job
+2022-06-24 15:33:52,838 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:33:52,841 | INFO | Status code: 422
+2022-06-24 15:33:54,392 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:33:54,396 | INFO | Status code: 422
+2022-06-24 15:34:00,297 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:34:00,300 | INFO | Status code: 422
+2022-06-24 15:34:01,814 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:34:01,826 | INFO | Status code: 422
+2022-06-24 15:34:03,243 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/3
+2022-06-24 15:34:03,247 | INFO | Status code: 422
+2022-06-24 15:34:08,648 | INFO | success scheduler job
+2022-06-24 15:34:14,660 | INFO | GET http://127.0.0.1:8001/docs
+2022-06-24 15:34:14,661 | INFO | Status code: 200
+2022-06-24 15:34:15,390 | INFO | GET http://127.0.0.1:8001/openapi.json
+2022-06-24 15:34:15,428 | INFO | Status code: 200
+2022-06-24 15:34:28,716 | INFO | success scheduler job
+2022-06-24 15:34:48,785 | INFO | success scheduler job
+2022-06-24 15:35:08,844 | INFO | success scheduler job
+2022-06-24 15:35:16,105 | INFO | DELETE http://127.0.0.1:8001/job_tasks/delete/{job_id}?id=5
+2022-06-24 15:35:16,170 | INFO | Status code: 204
+2022-06-24 15:35:28,904 | INFO | success scheduler job
+2022-06-24 15:35:48,958 | INFO | success scheduler job
+2022-06-24 15:35:53,222 | INFO | GET http://127.0.0.1:8001/job_tasks/delete/
+2022-06-24 15:35:53,223 | INFO | Status code: 404
+2022-06-24 15:35:53,530 | INFO | GET http://127.0.0.1:8001/favicon.ico
+2022-06-24 15:35:53,532 | INFO | Status code: 404
+2022-06-24 15:35:58,789 | INFO | GET http://127.0.0.1:8001/job_tasks/delete/5
+2022-06-24 15:35:58,790 | INFO | Status code: 405
+2022-06-24 15:36:09,011 | INFO | success scheduler job
+2022-06-24 15:36:29,075 | INFO | success scheduler job
+2022-06-24 15:36:49,132 | INFO | success scheduler job
+2022-06-24 15:37:09,197 | INFO | success scheduler job
+2022-06-24 15:37:29,255 | INFO | success scheduler job
+2022-06-24 15:37:49,308 | INFO | success scheduler job
+2022-06-24 15:38:09,363 | INFO | success scheduler job
+2022-06-24 15:38:29,414 | INFO | success scheduler job
+2022-06-24 15:38:49,474 | INFO | success scheduler job
+2022-06-24 15:39:09,536 | INFO | success scheduler job
+2022-06-24 15:39:16,260 | INFO | PUT http://127.0.0.1:8001/job_tasks/update_job
+2022-06-24 15:39:16,262 | INFO | Status code: 422
+2022-06-24 15:39:29,589 | INFO | success scheduler job
+2022-06-24 15:39:49,645 | INFO | success scheduler job
+2022-06-24 15:40:09,698 | INFO | success scheduler job
+2022-06-24 15:40:29,755 | INFO | success scheduler job
+2022-06-24 15:40:49,818 | INFO | success scheduler job
+2022-06-24 15:41:09,877 | INFO | success scheduler job
+2022-06-24 15:41:29,934 | INFO | success scheduler job
+2022-06-24 15:41:49,963 | ERROR | sorry, but there is a problem with the server: bad status 500
+2022-06-24 15:42:09,984 | ERROR | sorry, but there is a problem with the server: bad status 500
+2022-06-24 15:42:30,098 | INFO | success scheduler job
+2022-06-24 15:42:50,180 | INFO | success scheduler job
+2022-06-24 15:43:10,240 | INFO | success scheduler job
+2022-06-24 15:43:30,295 | INFO | success scheduler job
+2022-06-24 15:43:50,359 | INFO | success scheduler job
+2022-06-24 15:44:10,414 | INFO | success scheduler job
+2022-06-24 15:44:30,476 | INFO | success scheduler job
+2022-06-24 15:44:50,528 | INFO | success scheduler job
+2022-06-24 15:45:10,592 | INFO | success scheduler job
+2022-06-24 15:45:30,649 | INFO | success scheduler job
+2022-06-24 15:45:50,702 | INFO | success scheduler job
+2022-06-24 15:46:10,769 | INFO | success scheduler job
+2022-06-24 15:46:30,836 | INFO | success scheduler job
+2022-06-24 15:46:50,888 | INFO | success scheduler job
+2022-06-24 15:47:11,018 | INFO | success scheduler job
+2022-06-24 15:47:31,114 | INFO | success scheduler job
+2022-06-24 15:47:51,195 | INFO | success scheduler job
+2022-06-24 15:48:11,282 | INFO | success scheduler job
+2022-06-24 15:48:31,350 | INFO | success scheduler job
+2022-06-24 15:48:51,417 | INFO | success scheduler job
+2022-06-24 15:49:11,480 | INFO | success scheduler job
+2022-06-24 15:49:31,536 | INFO | success scheduler job
+2022-06-24 15:49:51,597 | INFO | success scheduler job
+2022-06-24 15:50:11,660 | INFO | success scheduler job
+2022-06-24 15:50:31,711 | INFO | success scheduler job
+2022-06-24 15:50:51,765 | INFO | success scheduler job
+2022-06-24 15:51:11,824 | INFO | success scheduler job
+2022-06-24 15:51:31,876 | INFO | success scheduler job
+2022-06-24 15:51:51,974 | INFO | success scheduler job
+2022-06-24 16:04:09,471 | INFO | success scheduler job
+2022-06-24 16:16:10,103 | INFO | success scheduler job
+2022-06-24 16:28:10,925 | INFO | success scheduler job
+2022-06-24 16:40:11,575 | INFO | success scheduler job
+2022-06-24 16:52:12,217 | INFO | success scheduler job
+2022-06-24 17:04:12,864 | INFO | success scheduler job
