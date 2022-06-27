@@ -1,25 +1,21 @@
-import schedule
-
-from pytz import utc
 from datetime import datetime
 import time
 import logging
 from io import BytesIO
 
-from fastapi import APIRouter, HTTPException, Depends, status, Response, File, UploadFile
+from fastapi import APIRouter, HTTPException, Depends, status, Response
 from fastapi.responses import StreamingResponse
-
 from sqlalchemy.orm import Session
 
+import schedule
 import xlsxwriter
-import pandas as pd
 
 from schemas.schema_scheduler import JobCreate, JobDelete
 from models.table_job import JobConfig
-# from services.excel_data import make_xls_file_response
 from services.scheduler_job import create_job, read_job
 from db.database import get_db
 from models.table_posts import Post
+from logger.log_info import logger
 
 router = APIRouter(
     prefix='/job_tasks',
@@ -27,9 +23,14 @@ router = APIRouter(
 )
 
 
-@router.put('/update_job')
+@router.put('/update_job', status_code=status.HTTP_200_OK)
 async def modify_job(job: JobCreate, db: Session = Depends(get_db)):
-    return create_job(db=db, job=job)
+    try:
+        create_job_interval = create_job(db=db, job=job)
+        logger.info('message: successfully created an interval in the task')
+        return create_job_interval
+    except:
+        logger.error('message: value is not a valid integer')
 
 
 @router.get('/get_scheduler_jobs')
@@ -91,4 +92,5 @@ async def get_excel(db: Session = Depends(get_db)):
     headers = {
         'Content-Disposition': 'attachment; filename="filename.xlsx"'
     }
+    logger.info('successfully unloaded from the database to an excel file')
     return StreamingResponse(output, headers=headers)

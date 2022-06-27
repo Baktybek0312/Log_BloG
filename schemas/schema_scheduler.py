@@ -10,5 +10,3 @@ class JobCreate(BaseModel):
 
 class JobDelete(BaseModel):
     id: int = Field(title="The Job ID in APScheduler", description="The Job ID in APScheduler")
-
-
